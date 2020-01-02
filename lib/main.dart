@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_destini/story_brain.dart';
+import 'story_brain.dart';
+
+StoryBrain storyBrain = StoryBrain();
 
 void main() => runApp(DestiniGame());
 
@@ -23,14 +27,13 @@ class _DestiniGameState extends State<DestiniGame> {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween
-                ,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Expanded(
                     flex: 12,
                     child: Center(
                       child: Text(
-                        'This is a placeholder for the description of the story and possible actions to undertake',
+                        storyBrain.getStory(),
                         style: TextStyle(color: Colors.white, fontSize: 25.0),
                         textDirection: TextDirection.ltr,
                       ),
@@ -42,7 +45,7 @@ class _DestiniGameState extends State<DestiniGame> {
                       onPressed: () {},
                       color: Colors.red,
                       child: Text(
-                        'This is an action',
+                        storyBrain.getChoice1(),
                         style: TextStyle(color: Colors.white, fontSize: 20.0),
                       ),
                     ),
@@ -56,7 +59,7 @@ class _DestiniGameState extends State<DestiniGame> {
                       onPressed: () {},
                       color: Colors.blue,
                       child: Text(
-                        'This is another action',
+                        storyBrain.getChoice2(),
                         style: TextStyle(color: Colors.white, fontSize: 20.0),
                       ),
                     ),
