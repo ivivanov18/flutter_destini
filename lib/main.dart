@@ -42,7 +42,11 @@ class _DestiniGameState extends State<DestiniGame> {
                   Expanded(
                     flex: 2,
                     child: FlatButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          storyBrain.nextStory(1);
+                        });
+                      },
                       color: Colors.red,
                       child: Text(
                         storyBrain.getChoice1(),
@@ -53,14 +57,21 @@ class _DestiniGameState extends State<DestiniGame> {
                   SizedBox(
                     height: 15.0,
                   ),
-                  Expanded(
-                    flex: 2,
-                    child: FlatButton(
-                      onPressed: () {},
-                      color: Colors.blue,
-                      child: Text(
-                        storyBrain.getChoice2(),
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                  Visibility(
+                    visible: storyBrain.buttonShouldBeVisible(),
+                    child: Expanded(
+                      flex: 2,
+                      child: FlatButton(
+                        onPressed: () {
+                          setState(() {
+                            storyBrain.nextStory(2);
+                          });
+                        },
+                        color: Colors.blue,
+                        child: Text(
+                          storyBrain.getChoice2(),
+                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        ),
                       ),
                     ),
                   ),

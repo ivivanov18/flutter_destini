@@ -41,15 +41,27 @@ class StoryBrain {
 
   String getChoice2() => _storyData[_storyNumber].choice2;
 
-  void nextStory(int choiceInput){
-    if(choiceInput == 1 && _storyNumber == 0) _storyNumber = 2;
-    else if(choiceInput == 2 && _storyNumber == 0) _storyNumber = 1;
-    else if(choiceInput == 1 && _storyNumber == 1) _storyNumber = 2;
-    else if(choiceInput == 2 && _storyNumber == 1) _storyNumber = 3;
-    else if(choiceInput == 1 && _storyNumber == 2) _storyNumber = 5;
-    else if(choiceInput == 2 && _storyNumber == 2) _storyNumber = 4;
-    else if (_storyNumber == 3 || _storyNumber == 4 || _storyNumber == 5) restart();
+  void nextStory(int choiceInput) {
+    if (choiceInput == 1 && _storyNumber == 0)
+      _storyNumber = 2;
+    else if (choiceInput == 2 && _storyNumber == 0)
+      _storyNumber = 1;
+    else if (choiceInput == 1 && _storyNumber == 1)
+      _storyNumber = 2;
+    else if (choiceInput == 2 && _storyNumber == 1)
+      _storyNumber = 3;
+    else if (choiceInput == 1 && _storyNumber == 2)
+      _storyNumber = 5;
+    else if (choiceInput == 2 && _storyNumber == 2)
+      _storyNumber = 4;
+    else if (_storyNumber == 3 || _storyNumber == 4 || _storyNumber == 5)
+      restart();
   }
 
   void restart() => _storyNumber = 0;
+
+  bool buttonShouldBeVisible() =>
+      _storyNumber == 0 || _storyNumber == 1 || _storyNumber == 2
+          ? true
+          : false;
 }
